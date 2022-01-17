@@ -1,0 +1,40 @@
+# Convert decimal to binary and print maximum no. of consecutive 1's in the binary number
+
+from math import floor
+n = int(input("Enter a decimal number: "))
+
+
+# Decimal to binary conversion
+obtainedBinary = ''
+rem = 0
+while n>0:
+    rem = n%2
+    n = floor(n/2)
+    obtainedBinary += str(rem)
+    # Reversing the obtained binary to get the actual binary number
+    actualBinary = "".join(reversed(obtainedBinary))
+print(actualBinary)
+
+
+# Counting maximum no. of consecutive 1's in the binary number
+count = 0
+maximum = 0
+for i in actualBinary:
+
+    if i == '1':
+        count += 1
+    else:
+        count = 0
+    if maximum < count:
+        maximum = count
+print(maximum)
+
+
+# input
+
+Enter a decimal number: 19
+
+# output
+
+10011
+2

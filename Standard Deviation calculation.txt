@@ -1,0 +1,33 @@
+# Standard Deviation calculation
+
+# No. of elements
+n = int(input())
+
+# Getting 'n' space separated integers as data
+data = input()
+
+# Forming a list of the 'n' data elements entered
+data_list = []
+data_list = [int(i) for i in data.split()]
+
+# Mean calculation
+mean = sum(data_list)/n
+
+
+# Standard Deviation calculation
+total = 0
+for i in range(len(data_list)):
+    total += pow((data_list[i] - mean), 2)
+
+standard_deviation = pow((total/n), 0.5)
+print('%.1f'%standard_deviation)
+
+
+# input
+
+5
+10 40 30 50 20
+
+# output
+
+14.1

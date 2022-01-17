@@ -1,0 +1,23 @@
+# Print elements of list in reverse order
+
+# Number of elements in list
+n = int(input("Enter number of elements: "))
+
+# List of elements
+arr = list(map(int, input("Enter n space separated numbers: ").rstrip().split()))
+
+# Reverse the list and print the space separated numbers
+arr.reverse()
+for x in arr:
+    print(x, end=' ')
+
+
+
+# input
+
+Enter number of elements: 4
+Enter n space separated numbers: 3 7 1 10
+
+# output
+
+10 1 7 3 

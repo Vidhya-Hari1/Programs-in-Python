@@ -1,0 +1,35 @@
+# Dictionary
+
+n = int(input('Enter number of pairs: '))
+d = {}
+
+# Storing as dictionary
+for i in range(n):
+    x = input("Enter name and number with space in between: ").split()
+    d[x[0]] = x[1]
+
+# Printing the pair of the name entered and catching EOF exception
+while True:
+    try:
+        name = input()
+        if name in d:
+            print(name, "=", d[name], sep="")
+        else : print("Not found")   
+    except: break
+
+
+
+# input and output
+
+Enter number of pairs: 3
+Enter name and number with space in between: harry 23
+Enter name and number with space in between: joe 77
+Enter name and number with space in between: james 22
+joe
+joe=77
+harry
+harry=23
+edward
+Not found
+
+

@@ -1,0 +1,78 @@
+# Interquartile range calculation
+
+from math import floor
+
+# Getting number of elements
+num = int(input("Enter the number of elements: "))
+
+# Getting a set of space separated elements
+data = map(int, input("Enter the numbers: ").split())
+
+# Getting space separated frequency of each element
+freq = map(int, input("Enter the frequency of each number: ").split())
+
+# Adding data elements to data1[] list
+data1 = []
+for i in data:
+    data1.append(i)
+    
+# Adding freq elements to freq1[] list
+freq1 = []
+for j in freq:
+    freq1.append(j)
+
+# Creating a list and adding each element the number of times as its frequency
+list = []
+
+for i in range(len(freq1)):
+    j = 1
+    while j <= freq1[i]:
+        list.append(data1[i])
+        j += 1
+
+
+list.sort()
+
+# Adding elements to lower and upper lists
+lower = []
+upper = []
+if len(list) % 2 != 0:
+
+        for i in range(floor(len(list)/2)):
+            lower.append(list[i])
+        for j in range((floor(len(list)/2)) + 1, len(list)):
+            upper.append(list[j])
+
+else:
+
+     for i in range(floor(len(list)/2)):
+        lower.append(list[i])
+     for j in range(floor(len(list)/2), len(list)):
+         upper.append(list[j])
+
+# q1 calculation
+if len(lower)%2 != 0:
+    q1 = lower[floor(len(lower) / 2)]
+else:
+    q1 = (lower[floor(len(lower)/2)] + lower[floor(len(lower)/2) - 1]) / 2
+
+# q3 calculation
+if len(upper)%2 != 0:
+    q3 = upper[floor(len(upper)/2)]
+else:
+    q3 = (upper[floor(len(upper)/2)] + upper[floor(len(upper)/2) - 1]) / 2
+
+# Interquartile range calculaltion
+interquartile_range = q3 - q1
+print('%.1f'%interquartile_range)
+
+
+# input
+
+Enter the number of elements: 6
+Enter the numbers: 6 12 8 10 20 16
+Enter the frequency of each number: 5 4 3 2 1 5
+
+# output
+
+9.0

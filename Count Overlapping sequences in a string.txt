@@ -1,0 +1,11 @@
+# Count Overlapping sequences in a string
+
+def count_substring(string, sub_string):
+    match = sum(string[i:].startswith(sub_string) for i in range(len(string)))
+    print(match)
+    
+count_substring('baaaaaa', 'aa')
+
+# output
+5
+

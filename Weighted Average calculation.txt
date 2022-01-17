@@ -1,0 +1,45 @@
+# Weighted Average calculation
+
+# No. of elements
+n = int(input())
+
+# Getting 'n' space separated integers as data
+data = input()
+
+# Getting 'n' space separated integers as weights
+weight = input()
+
+# Forming a list of the 'n' data elements entered
+data_list = []
+data_list = [int(i) for i in data.split()]
+
+# Forming a list of the 'n' data elements entered
+weight_list = []
+weight_list = [int(i) for i in weight.split()]
+
+# Creating a 2D list combined[] using data_list and weight_list
+i=0
+combined = []
+for entry in data_list:
+    combined.append([data_list[i],weight_list[i]])
+    i = i+1
+    
+
+# Weighted average calculation
+total = 0
+for i in range(len(combined)):
+    total += (combined[i][0] * combined[i][1])
+weighted_average = total/sum(weight_list)
+print('%.1f'%weighted_average)
+
+
+# input
+
+5
+10 40 30 50 20
+1 2 3 4 5
+
+
+# output
+
+32.0

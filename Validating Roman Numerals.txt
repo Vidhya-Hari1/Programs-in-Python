@@ -1,0 +1,13 @@
+# Validating Roman Numerals
+
+regex_pattern = r"^M{0,3}(D{0,1}C{0,3}|CD|CM)(L{0,1}X{0,3}|XL|XC)(V{0,1}I{0,3}|IV|IX)$" 	# Do not delete 'r'.
+
+import re
+print(str(bool(re.match(regex_pattern, input()))))
+
+
+# input
+CDXXI
+
+# output
+True

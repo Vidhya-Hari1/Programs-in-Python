@@ -1,0 +1,23 @@
+# Capitalize first letter of each word
+
+s = input("Enter a string: ")
+list = s.split(' ')
+new = []
+
+for i in list:
+    if str(i).isalpha():
+        new.append(str(i).title())
+    else:
+        new.append(str(i))
+
+result = ' '.join(new)
+print(result)
+
+
+# input
+
+Enter a string: 4r yhuu ^h
+
+# output
+
+4r Yhuu ^h

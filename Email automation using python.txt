@@ -1,0 +1,26 @@
+# Email automation using python
+
+# Login to the email account from which email is being sent and then
+# go to this site https://www.google.com/settings/security/lesssecureapps and
+# turn ON the option Allow less secure apps for email to be sent.
+# After checking if email has been sent and received, turn the option OFF.
+
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
+from pathlib import Path
+import smtplib
+
+message = MIMEMultipart()
+message['from'] = 'XXX'
+message['to'] = 'yyy@gmail.com'
+message['subject'] = 'This is a test'
+message.attach(MIMEText('Body'))
+message.attach(MIMEImage(Path('watercolor-world-map.jpg').read_bytes()))
+
+with smtplib.SMTP(host='smtp.gmail.com',port=587) as smtp:
+    smtp.ehlo()
+    smtp.starttls()
+    smtp.login(user='harividhya0309@gmail.com', password='#MentionThePasswordHere')
+    smtp.send_message(message)
+    print('Sent...')

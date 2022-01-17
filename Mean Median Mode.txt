@@ -1,0 +1,63 @@
+# Mean, Median, Mode calculation
+
+from math import floor
+
+# No. of elements
+n = int(input())                               
+
+# Getting 'n' space separated integers
+data = input() 
+
+# Forming a list of the 'n' numbers entered
+list = []
+list = [int(i) for i in data.split()]
+
+# Mean calculation
+mean = sum(list)/n
+print('%.1f'%mean)
+
+
+# Median calculation
+list.sort()
+if len(list) % 2 != 0:
+        median = list[floor(len(list)/2)]
+else:
+    median = (list[floor(len(list)/2)] + list[floor(len(list)/2) - 1]) / 2
+print('%.1f'%median)
+
+# Nested list with count of each number(has duplicates)
+new_list = []
+for i in list:
+    if i in list:
+        new_list.append([i, list.count(i)])
+
+# Nested list with count of each number(no duplicates)
+one_more_list = []
+for i in new_list:
+    if i not in one_more_list:
+        one_more_list.append(i)
+
+# Sorting by count in descending order
+one_more_list.sort(key=lambda x:x[1], reverse=True)
+
+# Forming a list of all numbers with highest count
+new = []
+for i in range(len(one_more_list)):
+    if one_more_list[i][1] == one_more_list[0][1]:
+        new.append(one_more_list[i][0])
+
+# Mode calculation
+mode = min(new)
+print(mode)
+
+
+# input
+
+8
+4 5 2 5 5 1 1 1
+
+# output
+
+3.0
+3.0
+1

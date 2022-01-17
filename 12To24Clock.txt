@@ -1,0 +1,40 @@
+# Convert 12 hour clock to 24 hour clock
+
+date = input("Enter a date")
+new = date.split(':')
+
+
+if new[0] == '12' and new[2].endswith('AM'):
+    new[0] = '00'
+    new.insert(1, ':')
+    new.insert(3, ':')
+
+    print(''.join(new).rstrip('AM'))
+
+elif new[0] == '12' and new[2].endswith('PM'):
+
+    new.insert(1, ':')
+    new.insert(3, ':')
+
+    print(''.join(new).rstrip('PM'))
+
+elif new[0] != '12' and new[2].endswith('PM'):
+    new[0] = int(new[0]) + 12
+    new[0] = str(new[0])
+
+    new.insert(1,':')
+    new.insert(3,':')
+
+
+    print(''.join(new).rstrip('AMPM'))
+
+else:
+    new.insert(1, ':')
+    new.insert(3, ':')
+    print(''.join(new).rstrip('AMPM'))
+
+
+# output
+
+Enter a date06:30:28PM
+18:30:28
