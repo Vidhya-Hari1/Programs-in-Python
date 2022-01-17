@@ -1,0 +1,25 @@
+# Palindrome or not
+
+# ask the user for some text;
+# check whether the entered text is a palindrome, and prints result.
+
+# Note:
+#1. assume that an empty string isn't a palindrome;
+#2. treat upper- and lower-case letters as equal;
+#3. spaces are not taken into account during the check - treat them as non-existent;
+
+word = input("Enter a string").lower()
+newword = word.replace(' ','')
+
+rev =  word[::-1]
+output = rev.replace(' ','').lower()
+if word == '' or newword != output:
+    print("not palindrome")
+else:
+    print("palindrome")
+
+
+# output
+
+Enter a stringTen animals I slam in a net
+palindrome

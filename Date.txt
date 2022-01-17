@@ -1,0 +1,22 @@
+# Sum of digits of a date till single digit value is obtained
+
+# you just need to sum all the digits of the date.
+# If the result contains more than one digit, you have to repeat the addition until you get exactly one digit.
+
+date = input("Enter dob in DDMMYYYY format")
+sum = 0
+for char in date:
+    sum += int(char)
+
+while sum >= 10:
+    x = sum % 10           # 1's digit
+    y = sum / 10           # 10's digit
+    sum = x + y
+
+print("Sum of digits", int(sum))
+
+
+# output
+
+Enter dob in DDMMYYYY format04042000
+Sum of digits 1

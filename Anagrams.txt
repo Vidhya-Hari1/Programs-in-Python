@@ -1,0 +1,28 @@
+# Anagram or not
+
+# ask the user for two separate texts;
+# check whether, the entered texts are anagrams and prints the result.
+
+# Note:
+# 1. assume that two empty strings are not anagrams;
+# 2. treat upper- and lower-case letters as equal;
+# 3. spaces are not taken into account during the check - treat them as non-existent
+
+
+s1 = input("Enter a string").lower().replace(' ','')
+s2 = input("Enter another string").lower().replace(' ','')
+
+if(s1 == '' or s2 == ''):
+    print("The strings aren't anagrams")
+
+
+elif (sorted(s1) == sorted(s2)):
+        print("The strings are anagrams.")
+else:
+        print("The strings aren't anagrams.")
+
+#output
+
+Enter a stringrail Safety
+Enter another stringFairy tales
+The strings are anagrams.
